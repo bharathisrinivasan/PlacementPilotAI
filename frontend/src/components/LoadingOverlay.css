@@ -1,0 +1,117 @@
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 16, 32, 0.92);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  max-width: 420px;
+  text-align: center;
+}
+
+.loading-spinner-wrapper {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner-ring {
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-right-color: var(--accent);
+  border-radius: 50%;
+}
+
+.loading-brain-icon {
+  color: var(--primary-light);
+}
+
+.loading-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.loading-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.loading-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  opacity: 0.5;
+  transition: all var(--transition-base);
+}
+
+.loading-step--active {
+  opacity: 1;
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.loading-step--complete {
+  opacity: 0.7;
+}
+
+.loading-step-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary-light);
+  flex-shrink: 0;
+}
+
+.loading-step--complete .loading-step-icon {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+}
+
+.loading-step-info {
+  flex: 1;
+  text-align: left;
+  min-width: 0;
+}
+
+.loading-step-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+}
+
+.loading-step-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.loading-step-check {
+  color: var(--success);
+  font-weight: 700;
+  font-size: 0.9rem;
+}

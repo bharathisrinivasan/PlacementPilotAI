@@ -1,0 +1,46 @@
+.roadmap-content { display: flex; flex-direction: column; gap: 24px; }
+.roadmap-overview { padding: 24px; }
+.overview-stats { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+.overview-stat { display: flex; align-items: center; gap: 12px; }
+.overview-value { display: block; font-size: 1.5rem; font-weight: 700; color: var(--text-primary); line-height: 1.2; }
+.overview-label { font-size: 0.75rem; color: var(--text-muted); }
+.roadmap-timeline { display: flex; flex-direction: column; gap: 12px; }
+.phase-card { padding: 0; overflow: hidden; }
+.phase-header { display: flex; align-items: center; gap: 16px; padding: 20px 24px; cursor: pointer; transition: background var(--transition-fast); }
+.phase-header:hover { background: rgba(99, 102, 241, 0.04); }
+.phase-number { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 50%; font-size: 0.7rem; font-weight: 700; color: white; flex-shrink: 0; }
+.phase-info { flex: 1; }
+.phase-info h3 { font-size: 1rem; }
+.phase-info p { font-size: 0.8rem; color: var(--text-secondary); }
+.phase-details { padding: 0 24px 24px; display: flex; flex-direction: column; gap: 12px; }
+.week-card { padding: 16px; background: var(--bg-card); border-radius: var(--radius-md); border-left: 3px solid var(--primary); }
+.week-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.week-number { font-size: 0.7rem; font-weight: 700; color: var(--primary-light); background: rgba(99,102,241,0.15); padding: 2px 8px; border-radius: var(--radius-full); }
+.week-header h4 { font-size: 0.9rem; }
+.week-objectives { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+.objective-item { display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; color: var(--text-secondary); }
+.daily-tasks { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+.daily-task { display: flex; align-items: center; gap: 10px; padding: 6px 10px; background: var(--bg-input); border-radius: var(--radius-sm); font-size: 0.8rem; }
+.task-day { font-weight: 600; color: var(--accent); min-width: 70px; font-size: 0.75rem; }
+.task-desc { flex: 1; color: var(--text-secondary); }
+.task-hours { font-weight: 600; color: var(--text-muted); font-size: 0.75rem; }
+.week-milestone { display: flex; align-items: center; gap: 6px; padding: 8px 12px; background: rgba(99, 102, 241, 0.08); border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--primary-light); }
+.projects-list { display: flex; flex-direction: column; gap: 16px; }
+.project-detail-card { padding: 24px; }
+.project-detail-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.project-detail-header h4 { font-size: 1rem; }
+.project-meta { display: flex; gap: 8px; }
+.project-desc { font-size: 0.85rem; color: var(--text-secondary); }
+.project-steps { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+.project-step { display: flex; align-items: flex-start; gap: 10px; font-size: 0.82rem; color: var(--text-secondary); }
+.step-num { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; background: var(--primary); color: white; border-radius: 50%; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; }
+.project-portfolio { margin-top: 10px; font-size: 0.8rem; color: var(--accent); display: flex; align-items: center; gap: 4px; }
+.final-recs { padding: 24px; }
+.final-recs h3 { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.recs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.rec-block h4 { font-size: 0.85rem; color: var(--accent); margin-bottom: 8px; }
+.rec-block ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.rec-block li { padding: 8px 12px; background: var(--bg-card); border-radius: var(--radius-sm); font-size: 0.82rem; color: var(--text-secondary); }
+.motivation-box { margin-top: 20px; padding: 16px; background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(34,211,238,0.1)); border-radius: var(--radius-md); border: 1px solid rgba(99,102,241,0.2); }
+.motivation-box p { font-size: 0.9rem; color: var(--text-primary); text-align: center; line-height: 1.6; }
+@media (max-width: 768px) { .recs-grid { grid-template-columns: 1fr; } }

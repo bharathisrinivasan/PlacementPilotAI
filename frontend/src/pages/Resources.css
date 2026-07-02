@@ -1,0 +1,8 @@
+.resources-filter { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+.filter-btn { padding: 6px 14px; font-size: 0.8rem; font-weight: 500; border: 1px solid var(--border); border-radius: var(--radius-full); background: transparent; color: var(--text-secondary); cursor: pointer; font-family: var(--font-sans); transition: all var(--transition-fast); }
+.filter-btn:hover { border-color: var(--primary); color: var(--primary-light); }
+.filter-btn--active { background: var(--primary); border-color: var(--primary); color: white; }
+.resource-card { padding: 20px; display: flex; flex-direction: column; gap: 10px; text-decoration: none !important; cursor: pointer; }
+.resource-card-header { display: flex; justify-content: space-between; align-items: center; }
+.resource-card h4 { color: var(--text-primary); font-size: 0.95rem; }
+.resource-link { display: flex; align-items: center; gap: 4px; font-size: 0.8rem; color: var(--primary-light); margin-top: auto; padding-top: 8px; }

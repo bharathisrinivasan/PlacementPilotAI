@@ -1,0 +1,11 @@
+.skill-gap-results { display: flex; flex-direction: column; gap: 20px; }
+.skill-chart-card { padding: 24px; }
+.skill-chart-card h3 { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.skill-section { padding: 24px; }
+.skill-section h3 { display: flex; align-items: center; gap: 8px; font-size: 1rem; margin-bottom: 16px; }
+.missing-skills-list { display: flex; flex-direction: column; gap: 10px; }
+.missing-skill-card { padding: 16px; background: var(--bg-card); border-radius: var(--radius-md); border-left: 3px solid var(--error); }
+.missing-skill-card--secondary { border-left-color: var(--warning); }
+.missing-skill-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+.missing-skill-name { font-weight: 600; font-size: 0.9rem; color: var(--text-primary); }
+.missing-skill-reason { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }

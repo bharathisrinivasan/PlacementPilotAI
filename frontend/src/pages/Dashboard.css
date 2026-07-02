@@ -1,0 +1,150 @@
+.dashboard-empty {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.dashboard-empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 32px;
+}
+
+.dashboard-empty-icon {
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.dashboard-empty-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.dashboard-empty-content p {
+  color: var(--text-secondary);
+}
+
+/* Quick Actions */
+.quick-action-card {
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.quick-action-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  margin: 0 auto 12px;
+}
+
+.quick-action-card h4 {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.quick-action-card p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Roles */
+.dashboard-roles {
+  margin-top: 24px;
+  padding: 24px;
+}
+
+.dashboard-roles h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.roles-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.role-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+}
+
+/* Results */
+.dashboard-results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-scores-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 20px;
+}
+
+.score-rings-container,
+.radar-container {
+  padding: 24px;
+}
+
+.score-rings-container h3,
+.radar-container h3 {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.score-rings-grid {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 16px 0;
+}
+
+/* List cards */
+.dashboard-list-card {
+  padding: 24px;
+}
+
+.dashboard-list-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.dashboard-list-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dashboard-list-card li {
+  padding: 8px 12px;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-left: 3px solid var(--primary);
+}
+
+@media (max-width: 1024px) {
+  .dashboard-scores-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -28,6 +28,7 @@ from google.genai import types
 from backend.agents.profile_agent import create_profile_agent
 from backend.agents.career_agent import create_career_agent
 from backend.agents.coach_agent import create_coach_agent
+from backend.rag.retriever import retrieve_career_context
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +36,7 @@ APP_NAME = "PlacementPilotAI"
 USER_ID = "placement_user"
 
 
-def create_coordinator(role_id: str = "", job_description: str = "") -> SequentialAgent:
+def create_coordinator(role_id: str = "", job_description: str = "", rag_context: str = "") -> SequentialAgent:
     """
     Create the Coordinator Agent that orchestrates the full analysis pipeline.
 
@@ -55,7 +56,7 @@ def create_coordinator(role_id: str = "", job_description: str = "") -> Sequenti
     # Pass role_id so the Career Agent can embed role knowledge directly —
     # avoids using MCPToolset stdio subprocess which fails silently in reloader chains.
     career_agent = create_career_agent(role_id=role_id, job_description=job_description)
-    coach_agent = create_coach_agent()
+    coach_agent = create_coach_agent(rag_context=rag_context)
 
     coordinator = SequentialAgent(
         name="PlacementPilotCoordinator",
@@ -87,9 +88,18 @@ async def run_analysis(
     """
     logger.info(f"Starting analysis pipeline for role: {target_role}")
 
+    # Retrieve optional role-specific knowledge for the Career Coach.
+    # The retriever returns an empty string on failure, preserving the original pipeline.
+    rag_context = retrieve_career_context(
+        role_id=target_role,
+        resume_text=resume_text,
+        job_description=job_description,
+    )
+    logger.info("RAG context %s for role %s", "available" if rag_context else "unavailable", target_role)
+
     # Create the coordinator and session service.
     # Pass role_id so the Career Agent embeds role knowledge in its instruction.
-    coordinator = create_coordinator(role_id=target_role, job_description=job_description)
+    coordinator = create_coordinator(role_id=target_role, job_description=job_description, rag_context=rag_context)
     session_service = InMemorySessionService()
 
     runner = Runner(

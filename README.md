@@ -183,6 +183,30 @@ Open **http://localhost:5173** in your browser.
 - `get_interview_topics(role_id)` — Interview topics
 - `compare_skills(role_id, skills)` — Skill comparison
 
+## 🧠 Retrieval-Augmented Generation (RAG)
+
+The Career Coach can optionally use an embedding-based retrieval layer over the
+existing `backend/mcp_server/career_data.py` knowledge base. Role-specific
+skills, interview topics, projects, learning resources, and certifications are
+split into small knowledge chunks, embedded with Google's `gemini-embedding-001`
+model, and stored in a local SQLite vector index. At analysis time, the candidate's
+target role, resume context, and optional job description are embedded as a query;
+the most relevant chunks are added to the Career Coach prompt.
+
+- RAG is enabled by default when a valid Google API key is configured.
+- Set `RAG_ENABLED=false` to use the original Career Coach prompt without retrieval.
+- Set `RAG_EMBEDDING_MODEL` to change the embedding model.
+- Set `RAG_DB_PATH` to choose the SQLite index location.
+- The index contains curated career knowledge only; candidate resumes are not stored.
+- If embedding or retrieval fails, the retriever logs a warning and the existing
+  multi-agent analysis continues without RAG context.
+- The default `/tmp` index is ephemeral on many cloud hosts, so it may be rebuilt
+  after a restart or deployment. Use a persistent mounted path if your host provides one.
+
+This implementation uses SQLite for lightweight vector storage and cosine-similarity
+ranking; it does not add a separate vector-database service or change frontend API
+contracts.
+
 ## 🔒 Security
 
 - API keys stored in `.env` only (never committed)

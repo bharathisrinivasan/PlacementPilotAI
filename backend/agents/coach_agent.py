@@ -126,15 +126,24 @@ IMPORTANT GUIDELINES:
 
 Candidate Profile: {profile_data}
 Career Analysis: {career_analysis}
+
+Retrieved Career Knowledge (RAG):
+{rag_context}
+
+Use the retrieved knowledge above when relevant. Prefer these verified role-specific resources, topics, and projects over generic suggestions. Do not invent URLs or claim a resource is free unless the retrieved data says so. If no retrieved knowledge is available, continue using the career analysis and your existing instructions.
 """
 
 
-def create_coach_agent() -> LlmAgent:
-    """Create and return the Career Coach Agent."""
+def create_coach_agent(rag_context: str = "") -> LlmAgent:
+    """Create the Career Coach Agent with optional retrieved knowledge."""
+    instruction = COACH_AGENT_INSTRUCTION.replace(
+        "{rag_context}",
+        rag_context or "No additional retrieved knowledge is available. Use the existing career analysis.",
+    )
     return LlmAgent(
         name="CareerCoachAgent",
         model="gemini-2.5-flash",
-        instruction=COACH_AGENT_INSTRUCTION,
+        instruction=instruction,
         description="Generates personalized career preparation roadmaps, project suggestions, interview preparation plans, and learning resource recommendations.",
         output_key="coaching_plan",
     )
